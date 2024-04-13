@@ -29,6 +29,7 @@ public interface IEtal {
 	 *         vendu [2] : quantité de produit à vendre au début du marché [4] :
 	 *         quantité de produit vendu
 	 */
+
 	String[] etatEtal();
 
 }

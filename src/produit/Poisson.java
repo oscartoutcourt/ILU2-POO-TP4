@@ -1,12 +1,15 @@
 package produit;
 
-public class Poisson implements Produit{
+public class Poisson extends Produit{
 	private String date;
-	private String nom;
+	private String nom="poisson";
+	public Poisson(String date) {
+		this.date=date;
+	}
 	public String getNom() {
 		return nom;
 	}
-	public void description() {
-		System.out.println("poisson pêchés:"+date);
+	public String description() {
+		return "poisson pï¿½chï¿½s:"+date;
 	}
 }

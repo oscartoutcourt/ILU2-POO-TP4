@@ -3,30 +3,34 @@ package villagegauloisold;
 import personnages.Gaulois;
 import produit.IProduit;
 
-public class Etal <T> implements IEtal {
+public class Etal <T extends IProduit> implements IEtal {
 	private Gaulois vendeur;
 	private T produit;
 	private int quantiteDebutMarche;
 	private int quantite;
 	private boolean etalOccupe = false;
 
+
 	@Override
 	public boolean isEtalOccupe() {
 		return etalOccupe;
 	}
+
 
 	@Override
 	public Gaulois getVendeur() {
 		return vendeur;
 	}
 
+
 	@Override
 	public int getQuantite() {
 		return quantite;
 	}
 
+
 	@Override
-	public T getProduit() {
+	public IProduit getProduit() {
 		return produit;
 	}
 
@@ -58,6 +62,7 @@ public class Etal <T> implements IEtal {
 		return quantiteAcheter;
 	}
 
+
 	@Override
 	public void libererEtal() {
 		etalOccupe = false;
@@ -71,13 +76,14 @@ public class Etal <T> implements IEtal {
 	 *         vendu [2] : quantité de produit à vendre au début du marché [4] :
 	 *         quantité de produit vendu
 	 */
+
 	@Override
 	public String[] etatEtal() {
 		String[] donneesVente = new String[5];
 		donneesVente[0] = String.valueOf(etalOccupe);
 		if (etalOccupe) {
 			donneesVente[1] = vendeur.getNom();
-			donneesVente[2] = produit;
+			donneesVente[2] = "";
 			donneesVente[3] = String.valueOf(quantiteDebutMarche);
 			donneesVente[4] = String.valueOf(quantiteDebutMarche - quantite);
 		}
