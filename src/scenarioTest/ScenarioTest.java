@@ -27,12 +27,29 @@ public class ScenarioTest {
 		Etal<Sanglier> etalSanglier2 = new Etal<>();
 		Etal<Poisson> etalPoisson1 = new Etal<>();
 		
-		Etal<Produit>[] marche= {etalSanglier1, etalSanglier2, etalPoisson1};
-
+		IEtal[] marche= {etalSanglier1, etalSanglier2, etalPoisson1};
 		
-		marche[0].installerVendeur(obelix, sangliersObelix, 8);
-		marche[1].installerVendeur(asterix, sangliersAsterix, 10);
-		marche[2].installerVendeur(ordralfabetix, poissons, 7);
+		etalSanglier1.installerVendeur(obelix, sangliersObelix, 8);
+		etalSanglier2.installerVendeur(asterix, sangliersAsterix, 10);
+		etalPoisson1.installerVendeur(ordralfabetix, poissons, 7);
+		
+		System.out.println(marche[0].etatEtal());
+		System.out.println(marche[1].etatEtal());
+		System.out.println(marche[2].etatEtal());
+		
+		int nbAchete=0;
+		int i=0;
+		while(nbAchete!=3 && i<3) {
+			int nbDispo=marche[i].contientProduit("sanglier", 3-nbAchete);
+			double depense=marche[i].acheterProduit(nbDispo);
+			nbAchete+=nbDispo;
+			System.out.println("A l'etal "+i+" je paye "+depense+" sous");
+			i++;
+		}
+		
+		System.out.println("\n"+marche[0].etatEtal());
+		System.out.println(marche[1].etatEtal());
+		System.out.println(marche[2].etatEtal());
 	}
 	
 }

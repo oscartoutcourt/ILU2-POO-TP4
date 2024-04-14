@@ -14,6 +14,7 @@ public class Etal <P extends IProduit> implements IEtal{
 		this.vendeur = vendeur;
 		this.prix=prix;
 		this.produits=produit;
+		nbProduit=produit.length;
 	}
 	
 	@Override

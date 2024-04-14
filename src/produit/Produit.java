@@ -11,7 +11,5 @@ public abstract class Produit implements IProduit {
 	public String description() {
 		return "";	
 	}
-	public double calculerPrix(double prix) {
-		return prix;
-	}
+	public abstract double calculerPrix(double prix);
 }
